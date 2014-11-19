@@ -4,6 +4,7 @@ var exec = require('child_process').exec;
 var i = 0;
 var j = 1;
 var command = "";
+var now = new Date();
 
 http.createServer(function (req, res) {
 	var parts = url.parse(req.url,true);
@@ -12,22 +13,23 @@ http.createServer(function (req, res) {
     	case 'hee': //orange
     		command = "./hue.sh "+j+" 255 255 10000"
 	    	exec(command, function(err, stdout, stderr) {});
-	    	console.log(j+",hee");
+	    	now = new Date();
+	    	console.log(j+",hee,"+now.getTime()+","+now.toString());
     		break;
     	case 'great': //red
 	    	command = "./hue.sh "+j+" 255 255 65535"
 	    	exec(command, function(err, stdout, stderr) {});
-	    	console.log(j+",great");
+	    	console.log(j+",great,"+now.getTime()+","+now.toString());
     		break;
     	case 'www': //green
  	    	command = "./hue.sh "+j+" 255 255 25500"
  		   	exec(command, function(err, stdout, stderr) {});
-	    	console.log(j+",www");
+	    	console.log(j+",www,"+now.getTime()+","+now.toString());
     		break;
     	case 'question': //blue
     		command = "./hue.sh "+j+" 255 255 47000"
  		   	exec(command, function(err, stdout, stderr) {});
-	    	console.log(j+",question");
+	    	console.log(j+",question,"+now.getTime()+","+now.toString());
     		break;
     	default:
     		break;
