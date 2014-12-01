@@ -4,10 +4,10 @@ var exec = require('child_process').exec;
 var i = 0;
 var j = 1;
 var command = "";
-var now = new Date();
 
 http.createServer(function (req, res) {
-	var parts = url.parse(req.url,true);
+    var now = new Date();
+    var parts = url.parse(req.url,true);
     var type = parts.query.type;
     switch(type) {
     	case 'hee': //orange
@@ -41,4 +41,4 @@ http.createServer(function (req, res) {
     j = i+1
     res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
     res.end('<h1>OK</h1>');
-}).listen(1337, "192.168.0.3");
+}).listen(1337, "10.1.100.100");
